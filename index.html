@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+
+  <title>Tip calculator app</title>
+  <link rel="stylesheet" href="Tip.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <img src="images/logo.svg" alt="Logo" class="logo">
+
+  <main class="main">
+    <section class="section">  
+      <p class="p-heading p-bill">Bill</p>
+
+        <input type="number" placeholder="0" class="input bill" id="bill" maxlength="7" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeypress="return isNumberKey(event)">
+
+        <p class="p-heading p-tip">Select Tip %</p>
+
+        <div class="button-holder">
+            <button class="percent" type="button" data-percent="5">5%</button>
+            <button class="percent" data-percent="10">10%</button>
+            <button class="percent" data-percent="15">15%</button>
+  
+            <button class="percent" data-percent="25">25%</button>
+            <button class="percent" data-percent="50">50%</button>
+            <button class="input-button-holder" data-percent="" id="customHolder">
+              <input type="number" placeholder="Custom" class="button-input" id="custom" maxlength="3" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeypress="return isNumberKeyPeople(event)">
+            </button>
+        </div>
+
+
+      <div class="people-holder">
+        <p class="p-heading">Number of People</p>
+        <p class="p-validation hidden" id="zeroPeople">Can't be zero</p>
+      </div>
+
+        <input type="number" placeholder="0" value="1" class="input people" id="people" maxlength="4" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeypress="return isNumberKeyPeople(event)">
+    </section>
+
+    <article class="article">
+      <div class="pricing">
+        <div class="article-part">
+          <div class="per-person">
+            <p class="heading-article">Tip <br/> Amount</p>
+            <p class="article-per-person">/ person</p>
+          </div>
+          <h1 class="article-price" id="tipAmount">$0.00</h1>
+        </div>
+  
+        <div class="article-part">
+          <div class="per-person">
+            <p class="heading-article">Total</p>
+            <p class="article-per-person">/ person</p>
+          </div>
+          <h1 class="article-price" id="total">$0.00</h1>
+        </div>
+      </div>
+      
+      <button class="reset" id="reset">Reset</button>
+    </article>
+  </main>
+
+</body>
+  <script src="Tip.js"></script>
+</html>
